@@ -1,1 +1,3 @@
-== SquareCamJS ==
+SquareCamJS
+===========
+
