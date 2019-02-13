@@ -1,0 +1,36 @@
+
+<html>
+
+<head>
+	<title>jQuery SquareCam Demo Page</title>
+	<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script src="jquery-squarecam.js" type="text/javascript"></script>
+</head>
+
+<body>
+
+    <div id="squarecam"></div>
+    <img id="imagecam" />
+
+<script type="text/javascript">
+
+$(function() {
+
+    // * WebCam
+
+    $("#squarecam").squarecam( 
+        'imagecam', 
+        {
+          size:         200,
+          btStartMsg:   '<span class="glyphicon glyphicon-camera" aria-hidden="true"></span>',
+          btCaptureMsg: '<span class="glyphicon glyphicon-ok" aria-hidden="true"></span>',
+          hideImage:    true,
+        } 
+    );
+
+});
+
+</script>
+
+</body>
+</html>
