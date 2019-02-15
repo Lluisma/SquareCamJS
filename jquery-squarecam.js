@@ -150,46 +150,54 @@
 
 		function capture() {
 
-			canvas1.width  = video.videoWidth;
-			canvas1.height = video.videoHeight;
-			canvas1.getContext('2d').drawImage(video, 0, 0);
-	
+			if (video.videoWidth==0) {
 
-			var sX = parseInt( Math.abs(canvas1.width - canvas1.height) / 2 );
-			var sY = canvas1.height * 10;
+				console.log("No video");
 
-			// Crop image
+			} else {
 
-			var imageData = canvas1.getContext('2d').getImageData(sX, 0, sY, sY);
+				canvas1.width  = video.videoWidth;
+				canvas1.height = video.videoHeight;
+				canvas1.getContext('2d').drawImage(video, 0, 0);
+		
 
-			// Secondary canvas with the desired sizes and use puImageData to set the pixels
+				var sX = parseInt( Math.abs(canvas1.width - canvas1.height) / 2 );
+				var sY = canvas1.height * 10;
 
-			canvas2.width  = canvas1.height;
-			canvas2.height = canvas1.height;
-			var ctx2 = canvas2.getContext("2d");
-			ctx2.rect(0, 0, canvas1.height, canvas1.height);
-			ctx2.fillStyle = 'white';
-			ctx2.fill();
-			ctx2.putImageData(imageData, 0, 0);
+				// Crop image
 
-			// Uppdate the image source
-			image.css('width', dimPX).css('height', dimPX);
-			image.attr('src', canvas2.toDataURL("image/png"));
-			// Other browsers will fall back to image/png -> 'image/webp';
-			image.show();
+				var imageData = canvas1.getContext('2d').getImageData(sX, 0, sY, sY);
 
-			// Hide webcam elements
-			divobj.css('height', 0);
+				// Secondary canvas with the desired sizes and use puImageData to set the pixels
 
-	        video.pause();
+				canvas2.width  = canvas1.height;
+				canvas2.height = canvas1.height;
+				var ctx2 = canvas2.getContext("2d");
+				ctx2.rect(0, 0, canvas1.height, canvas1.height);
+				ctx2.fillStyle = 'white';
+				ctx2.fill();
+				ctx2.putImageData(imageData, 0, 0);
 
-		  	video.style.display  = 'none';
-	  		framed.style.display = 'none';
+				// Uppdate the image source
+				image.css('width', dimPX).css('height', dimPX);
+				image.attr('src', canvas2.toDataURL("image/png"));
+				// Other browsers will fall back to image/png -> 'image/webp';
+				image.show();
 
-			webcamStream.getVideoTracks()[0].stop();
+				// Hide webcam elements
+				divobj.css('height', 0);
 
-			$(btStop).toggle();
-			$(btStart).toggle();
+		        video.pause();
+
+			  	video.style.display  = 'none';
+		  		framed.style.display = 'none';
+
+				webcamStream.getVideoTracks()[0].stop();
+
+				$(btStop).toggle();
+				$(btStart).toggle();
+
+			}
 
 	  	};
 
