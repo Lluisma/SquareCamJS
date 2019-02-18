@@ -38,12 +38,12 @@
 		divobj = $(this);
 		divobj.css('position', 'relative').css('margin', '0 auto').css('width', 'auto');
 
-        image = $("#" + imgId);
-        if (hideImg) {
-        	image.hide();
-        }
+		image = $("#" + imgId);
+		if (hideImg) {
+			image.hide();
+		}
 
-	    btStart = document.createElement("button");
+		btStart = document.createElement("button");
 		btStart.type = "button";
 		 $(btStart).html( msgStart )
 		           .css('position', 'absolute').css('bottom', '5px').css('right', '5px').css('z-index', 100);
@@ -140,7 +140,7 @@
 		}
 
 		function handleError(error) {
-	  		console.error('Error: ', error);
+	  		alert('Error ' + error.code + ': ' + error.message);
 		}
 
 
