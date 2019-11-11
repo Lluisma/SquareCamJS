@@ -1,7 +1,7 @@
 # jquery-squarecam
 
 ## Description
-Creates a Leaflet map linked to an existing form: shows existing coordinates and provides the location of addresses using the Nominatim geocode.
+Creates two control buttons on the desired div: 'Start' opens the webcama and 'Capture' gets the current webcam image and crops it with the same height and witdh, according to the 'size' parameter.
 
 ## Mandatory requirements
 * [jQuery](https://jquery.com/)
@@ -30,7 +30,7 @@ $("#map_div_id").jSquarecam( 'img_id', { options } );
 ### `btStartMsg`
 String to be shown in the start button. Defaut value: `Start WebCam`.
 
-### `btCapturetMsg`
+### `btCaptureMsg`
 String to be shown in then capture button. Defaut value: `Capture`.
 
 ### `hideImage`
